@@ -4,7 +4,7 @@ import Login from './Login/Login'
 export default function HomePage(){
     return(
         <div className={"HomePageRoot"}>
-            <h1>Best Camera Out There</h1>
+            <h1 className={"HomePageHeader"}>Best Camera Out There</h1>
             <Login/>
         </div>
     )

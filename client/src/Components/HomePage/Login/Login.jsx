@@ -1,6 +1,7 @@
 import React , {useState} from "react"
 import './Login.scss'
 import './InputRow'
+import {Card ,Button} from "antd"
 import InputRow from "./InputRow";
 export default function Login (){
     const [mode,setMode] = useState("Login")
@@ -9,7 +10,8 @@ export default function Login (){
     const [rePassword,setRePassword] = useState("")
     const [email,setEmail] = useState("")
     return(
-        <div className={"LoginRoot"}>
+        <Card title={mode} >
+            <div className={"LoginRoot"}>
             <form>
                 <InputRow name={"Username"} value={username} onChange={setUsername} required/>
                 {mode==="Register" &&
@@ -23,7 +25,8 @@ export default function Login (){
             <span className={"accountChangeMode"} onClick={()=>{setMode(mode==='Login' ? "Register" : "Login")}}>
             {mode==='Login' ? 'Dont have an account?' : "Already have an Account?"}
             </span>
-            <button>{mode}</button>
-        </div>
+            <Button>{mode}</Button>
+            </div>
+        </Card>
     )
 }
