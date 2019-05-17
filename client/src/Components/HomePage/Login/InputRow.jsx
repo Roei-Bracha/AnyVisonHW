@@ -14,7 +14,6 @@ export default function InputRow ({
             {showLabel && <label>{label}:</label>}
             <Input
                 placeholder={showLabel ? undefined : label}
-                password={false}
                 value={value}
                 type={type}
                 onChange={(e)=>{onChange(e.target.value)}}

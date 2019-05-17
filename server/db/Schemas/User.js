@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
-    username: String,
-    passwordHash:String,
-    email:String,
+    username:  { type: String, required: true, unique: true },
+    passwordHash:{ type: String, required: true},
+    email:{ type: String, required: true, unique: true },
     cameras:{
         url:String,
         active:Boolean

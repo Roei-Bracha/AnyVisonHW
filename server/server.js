@@ -23,18 +23,31 @@ app.post('/api/newUser',(req,res)=>{
             passwordHash:hash,
             email:req.body.email
         })
-        newUser.save().then(res.sendStatus(200)).catch((err)=>{
-            console.log("eror in saving in mongo:", err)
-            res.sendStatus(500)
+        newUser.save()
+        .then((data)=>{res.sendStatus(200)})
+        .catch((err)=>{
+            res.sendStatus(406)
         });
     }).catch((err)=>{
         console.log('bcrypt error:', err)
     });
 })
 
-// app.post("/api/login",(req,res)=>{
-
-// })
+app.post("/api/login",(req,res)=>{
+    User.findOne({username:req.body.username}).then((user)=>{
+        if(user){
+            bcrypt.compare(req.body.password, user.passwordHash, function(err, result) {
+                if(result){
+                    res.send({username:user.username,cameras:user.cameras})
+                }
+                else res.sendStatus(401)
+            });
+        }
+        else{
+            res.sendStatus(401)
+        }
+    })
+})
 
 
 module.exports = app
