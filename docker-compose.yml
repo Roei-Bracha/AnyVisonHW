@@ -21,16 +21,22 @@ services:
     volumes: #allow accsess to the file system of the docker container - allow live changing between the host and the container
       - ./server/:/usr/src/app # hostPath:containerPath
     links:
-      - mongoDB
+      - mongo
     environment:
-      MONGODB_URI: mongodb://root:root@mongoDB:27017/example
+      MONGODB_URI: mongodb://mongo:27017/example
       SECRET: MySuperSecret
-  
-  mongoDB:
+    depends_on:
+      - mongo
+  mongo:
     container_name: mongoDB
     image: mongo:3.4
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+    # environment:
+      # MONGO_INITDB_ROOT_USERNAME: root
+      # MONGO_INITDB_ROOT_PASSWORD: root
+      # MONGO_INITDB_DATABASE: example
+      # MONGO_DATA_DIR: /data/db
+      # MONGO_LOG_DIR: /dev/null
     ports:
       - "27017:27017"
+    volumes:
+      - "/data/db:/data/db"
