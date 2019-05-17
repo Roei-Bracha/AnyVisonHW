@@ -1,0 +1,36 @@
+version: '3.6' #the version of the docker compose
+
+services:
+  client-side: #name of the service
+    container_name: client-side # name of the container
+    build: ./client/ #where its find the docker file that tell him how to build it
+    command: npm start # the commentd we wont it to run after the build
+    working_dir: /usr/src/app #what is the working dir
+    ports: # port forwording
+      - "3000:3000"
+    volumes: #allow accsess to the file system of the docker container - allow live changing between the host and the container
+      - ./client/:/usr/src/app # hostPath:containerPath
+
+  backend:
+    container_name: backend
+    build: ./server/ #where its find the docker file that tell him how to build it
+    command: npm run develop # the commentd we wont it to run after the build
+    working_dir: /usr/src/app #what is the working dir
+    ports: # port forwording
+      - "80:80"
+    volumes: #allow accsess to the file system of the docker container - allow live changing between the host and the container
+      - ./server/:/usr/src/app # hostPath:containerPath
+    links:
+      - mongoDB
+    environment:
+      MONGODB_URI: mongodb://root:root@mongoDB:27017/example
+      SECRET: MySuperSecret
+  
+  mongoDB:
+    container_name: mongoDB
+    image: mongo:3.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"

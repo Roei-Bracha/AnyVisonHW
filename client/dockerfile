@@ -1,0 +1,6 @@
+FROM node:10.15.1-jessie
+WORKDIR /usr/src/app
+COPY ./ ./
+RUN npm i yarn -g
+RUN yarn install
+CMD ["/bin/bash"]
