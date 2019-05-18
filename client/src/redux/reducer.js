@@ -1,4 +1,4 @@
-import {LOGIN_USER , LOGOUT_USER} from './actionTypes'
+import {LOGIN_USER , LOGOUT_USER , ADD_NEW_CAMERA} from './actionTypes'
 const defaultState = {
     username:null,
     cameras:[]
@@ -7,7 +7,6 @@ const defaultState = {
 export default function store(state = defaultState , action){
     switch (action.type){
         case LOGIN_USER:
-            console.log(LOGIN_USER)
             return{
                 ...state,
                 username:action.username,
@@ -15,6 +14,17 @@ export default function store(state = defaultState , action){
             }
         case LOGOUT_USER:
             return defaultState
+        case ADD_NEW_CAMERA:
+            return{
+                ...state,
+                cameras:[
+                    ...state.cameras,
+                    {
+                        url:action.url,
+                        active:true
+                    }
+                ]
+            }
         default: return state
     }
 }

@@ -45,10 +45,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        username: state.username
-    }
-}
-
 export default connect(()=>{},mapDispatchToProps)(Login)

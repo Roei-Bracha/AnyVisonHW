@@ -1,5 +1,4 @@
 import {baseUrl} from '../../../config.js'
-import {loginUser} from '../../../redux/actions'
 // this function handle the submit button
 export default (mode,username,password,rePassword,email,setError,LoginUser)=>{
     //first we need to check if the user want to create user or to login
@@ -17,10 +16,7 @@ export default (mode,username,password,rePassword,email,setError,LoginUser)=>{
                 })
             }).then((response)=>{
                 if(response.ok){ // if we got 200
-                    response.json().then((data)=>{
-                        setError("")
-                        LoginUser(data.username,data.cameras)
-                    })
+                    LoginUser(username,[])
                 }
                 else{ // if tere was an error
                     if(response.status===406){ // if the user in use the server return 406

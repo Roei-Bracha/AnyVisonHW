@@ -5,10 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://wallpapercave.com/wp/wp2444481.jpg");
+  background-image: url("/index.png");
+  /* background-image: url("https://wallpapercave.com/wp/wp2444481.jpg"); */
   /* background-image: url("http://images.unsplash.com/photo-1505739998589-00fc191ce01d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"); */
-  background-repeat: no-repeat;
-  background-size: 100%
 
 }
 

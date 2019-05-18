@@ -1,4 +1,4 @@
-.videoGridContainer{
+.Grid{
     display:flex;
     // flex: 1 100% ;
     align-content:center;
@@ -6,14 +6,45 @@
     height:100%;
     width:100%;
     flex-flow: row;
+    .floatingButton{
+        display: block;
+        position: absolute;
+        right: 50px;
+        bottom: 50px;
+    }
+    .videoGridContainer{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
     iframe{
         margin:10px
     }
-    .playerContainer{
-        height: 100%;
+    .AddCamera{
         width: 100%;
+        height: 100%;
+        align-content:center;
+        justify-content:center;
+        align-items: center;
+        justify-items: center;
         display: flex;
-        background-color: green;
-        border: 1px solid black
+        .cardContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
+            .buttons{
+                margin-top:15px;
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    margin:5px;
+                }
+            }
+        }
     }
 }

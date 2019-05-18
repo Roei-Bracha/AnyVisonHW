@@ -2,7 +2,7 @@ import React from 'react';
 import "antd/dist/antd.css";
 import HomePage from './Components/HomePage/HomePage'
 import Grid from './Components/Grid/Grid'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from './redux/store'
 function App() {

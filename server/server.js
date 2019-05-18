@@ -49,5 +49,8 @@ app.post("/api/login",(req,res)=>{
     })
 })
 
-
+app.post("/api/addCamera",(req,res)=>{
+    console.log(req.body.username)
+    const user = User.findOneAndUpdate({username:req.body.username},{$push: {cameras: {url:req.body.url,active:true}}},(err,doc)=>{})
+})
 module.exports = app
