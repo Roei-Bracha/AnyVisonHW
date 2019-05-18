@@ -11,7 +11,8 @@ requirements:
 
 the app will be served in http://localhost:80
 
-did my best to answer the goal - but I had only 2 days before i go back to the aramy
+did my best to answer the goal - but I had only 2 days before i go back to the aramy.
+
 all the key functions are working but the design coud be better and same for the authentication.
 
 ## **the assiment:**
